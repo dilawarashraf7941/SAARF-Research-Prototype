@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #071525;
+  --color-navy-2: #0b2038;
+  --color-navy-700: #1b3b5f;
+  --color-navy-100: #cfdae6;
+  --color-navy-50: #edf3f8;
+  --color-accent: #6657d9;
+  --color-accent-100: #ddd8f7;
+  --color-accent-50: #f2f0fc;
+  --color-canvas: #f2f5f8;
+  --color-line: #dce3ea;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background: var(--color-canvas);
+  color: #172235;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  background-image:
+    linear-gradient(rgba(7, 21, 37, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 21, 37, 0.018) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+::selection {
+  background: var(--color-accent-100);
+}
+
+/* Thin, unobtrusive scrollbars for log panes */
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #c7ccd6 transparent;
+}
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: #c7ccd6;
+  border-radius: 999px;
+}
+
+/* Subtle dotted grid used behind diagrams */
+.diagram-grid {
+  background-color: #f7f9fb;
+  background-image:
+    linear-gradient(rgba(11, 32, 56, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 32, 56, 0.045) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.instrument-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.lab-shadow {
+  box-shadow: 0 1px 2px rgba(7, 21, 37, 0.04), 0 14px 38px rgba(7, 21, 37, 0.055);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@keyframes signal-flow {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(300%); }
+}
+
+.signal-flow {
+  animation: signal-flow 2.4s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
